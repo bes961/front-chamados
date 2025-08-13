@@ -1,0 +1,53 @@
+<!-- 
+  Componente de página de suporte
+  Exibe a lista de chamados do usuário com opções de filtragem e paginação
+-->
+<section class="support">
+  <h2>Meus chamados</h2>
+
+  <!-- Campo de busca -->
+  <mat-form-field appearance="outline" class="search-field">
+    <mat-label>Procura por um atendimento</mat-label>
+    <input matInput [value]="query()" (input)="onQueryChange($event)" />
+    <button mat-icon-button matSuffix aria-label="Buscar">
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <!-- Filtros de status -->
+  <div class="filters">
+    <button mat-stroked-button color="primary" [class.active]="filter() === TicketStatus.PENDENTE" (click)="setFilter(TicketStatus.PENDENTE)">Pendente</button>
+    <button mat-stroked-button color="primary" [class.active]="filter() === TicketStatus.CONCLUIDO" (click)="setFilter(TicketStatus.CONCLUIDO)">Concluído</button>
+    <button mat-stroked-button color="primary" [class.active]="filter() === TicketStatus.CANCELADO" (click)="setFilter(TicketStatus.CANCELADO)">Cancelado</button>
+  </div>
+
+  <!-- Lista de chamados -->
+  <div class="tickets" *ngIf="filtered().length; else empty">
+    @for (t of filtered(); track t.numero) {
+      <article class="ticket" [ngClass]="statusClass(t.status)">
+        <div class="body">
+          <div><strong>Nº: {{ t.numero }}</strong></div>
+          <div>Assunto: {{ t.assunto }}</div>
+          <div>Status: {{ statusLabel(t.status) }}</div>
+          <div>{{ t.grupo }}</div>
+        </div>
+      </article>
+    }
+    <!-- Paginação -->
+    <div class="pager" *ngIf="totalPages() > 1">
+      <button mat-stroked-button color="primary" (click)="prev()">Anterior</button>
+      <span>Página {{ page() }} de {{ totalPages() }}</span>
+      <button mat-stroked-button color="primary" (click)="next()">Próxima</button>
+    </div>
+  </div>
+  
+  <!-- Mensagem quando não há chamados -->
+  <ng-template #empty>
+    <div class="empty">Nenhum chamado para exibir.</div>
+  </ng-template>
+
+  <!-- Botão para criar novo chamado -->
+  <div class="cta">
+    <button mat-raised-button color="primary" [routerLink]="['/novo']">Abrir novo chamado</button>
+  </div>
+</section>

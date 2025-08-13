@@ -1,0 +1,50 @@
+<!-- 
+  Componente de página para criação de novo chamado
+  Permite ao usuário preencher os dados necessários para abrir um novo chamado
+-->
+<section class="new-ticket">
+  <h2>Abrir novo chamado</h2>
+
+  <!-- Seleção de grupo de atendimento -->
+  <mat-form-field appearance="outline" class="full">
+    <mat-label>Selecione um grupo de atendimento</mat-label>
+    <mat-select [value]="grupo()" (selectionChange)="grupo.set($event.value)">
+      <mat-option value="Infra - Acessórios">Infra - Acessórios</mat-option>
+      <mat-option value="Sistemas">Sistemas</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Seleção de tipo de atendimento -->
+  <mat-form-field appearance="outline" class="full">
+    <mat-label>Tipo de atendimento</mat-label>
+    <mat-select [value]="tipo()" (selectionChange)="tipo.set($event.value)">
+      <mat-option value="Dúvida">Dúvida</mat-option>
+      <mat-option value="Problema">Problema</mat-option>
+      <mat-option value="Solicitação">Solicitação</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Campo de assunto -->
+  <mat-form-field appearance="outline" class="full">
+    <mat-label>Assunto</mat-label>
+    <input matInput [value]="assunto()" (input)="onAssunto($event)" />
+  </mat-form-field>
+
+  <!-- Campo de descrição -->
+  <mat-form-field appearance="outline" class="full">
+    <mat-label>Solicitação</mat-label>
+    <textarea matInput rows="6" [value]="descricao()" (input)="onDescricao($event)"></textarea>
+  </mat-form-field>
+
+  <!-- Botão de envio -->
+  <div class="cta">
+    <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="submitted()">
+      <span *ngIf="!submitted()">ENVIAR</span>
+      <span *ngIf="submitted()">Enviando...</span>
+    </button>
+  </div>
+  
+  <div *ngIf="submitted()" class="success-message">
+    <p>Chamado criado com sucesso!</p>
+  </div>
+</section>

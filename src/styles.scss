@@ -1,0 +1,97 @@
+/* Global styles and theme */
+@use "@angular/material" as mat;
+
+/* Importar diretrizes de UI */
+@import './styles/ui-guidelines.scss';
+
+@include mat.core();
+
+/* Material 3 theme - usando cores das UI Guidelines */
+$theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$cyan-palette,
+    // Usaremos CSS custom properties para sobrescrever as cores
+  ),
+  typography: (
+    brand-family: 'Nunito',
+    plain-family: 'Nunito',
+  ),
+));
+
+/* Sobrescrever cores do Material com nossas cores personalizadas */
+:root {
+  --mdc-theme-primary: #{$primary};
+  --mdc-theme-on-primary: #ffffff;
+  --mat-toolbar-container-background-color: #{$primary};
+  --mat-toolbar-container-text-color: #ffffff;
+}
+
+/* Os estilos de tema M3 precisam estar dentro de um seletor */
+:root {
+  @include mat.all-component-themes($theme);
+}
+
+/* Design tokens baseados nas diretrizes de UI */
+:root {
+  /* Cores base - seguindo UI Guidelines */
+  --c-primary: #{$primary}; /* #3a9db7 */
+  --c-primary-2: #{$primary-2}; /* #49afc9 */
+  --c-secondary: #{$secondary}; /* #222b45 */
+  --c-black: #{$black}; /* #888787 */
+  --c-gray: #{$gray}; /* #f0f0f0 */
+  --c-white: #{$white}; /* #2f80ed */
+
+  /* Cores derivadas para compatibilidade */
+  --c-primary-dark: #{$primary};
+  --c-muted: #{$black};
+  --c-bg: #{$gray};
+  --c-text: #{$secondary};
+  --c-primary-contrast: #ffffff;
+  --c-border: color-mix(in srgb, var(--c-text) 12%, transparent);
+  --c-ticket-border: color-mix(in srgb, var(--c-primary) 65%, #1b1b1b 0%);
+  --c-ticket-success-bg: color-mix(in srgb, var(--c-primary-2) 25%, #ffffff 75%);
+  --c-ticket-cancel-border: color-mix(in srgb, #ff0000 35%, var(--c-primary) 0%);
+
+  /* Tipografia - seguindo UI Guidelines */
+  --font-family: 'Nunito', sans-serif;
+  --font-weight-light: #{$font-weight-light};
+  --font-weight-regular: #{$font-weight-regular};
+  --font-weight-semibold: #{$font-weight-semibold};
+  --font-weight-black: #{$font-weight-black};
+  --font-size-16: #{$font-size-16};
+  --font-size-14: #{$font-size-14};
+  --font-size-12: #{$font-size-12};
+  --font-size-10: #{$font-size-10};
+
+  /* Espaçamento e raio */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --radius-card: 12px;
+  --radius-button: 8px;
+  --shadow-card: 0 1px 2px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.08);
+}
+
+html, body { background: #fff; color: var(--c-text); }
+
+.mat-toolbar.mat-primary {
+  background-color: var(--c-primary);
+  color: var(--c-primary-contrast);
+}
+
+.mat-mdc-raised-button.mat-primary {
+  --mdc-protected-button-container-color: var(--c-primary);
+  --mdc-protected-button-label-text-color: var(--c-primary-contrast);
+  border-radius: var(--radius-button);
+}
+
+.mat-mdc-stroked-button.mat-primary {
+  border-radius: var(--radius-button);
+}
+
+h2 { color: var(--c-primary-dark); }
+
+.app-bg { background-color: var(--c-bg); }

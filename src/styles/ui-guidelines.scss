@@ -1,0 +1,247 @@
+/**
+ * UI Style Guidelines
+ * Configurações de tipografia e cores para manter consistência visual
+ * Este arquivo deve ser consultado sempre para manter o padrão do projeto
+ */
+
+/* ==========================================================================
+   01. TYPOGRAPHY
+   ========================================================================== */
+
+/* Fonte principal do projeto */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;900&display=swap');
+
+/* Variáveis de peso da fonte */
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+$font-weight-black: 900;
+
+/* Variáveis de tamanho da fonte */
+$font-size-16: 16px;
+$font-size-14: 14px;
+$font-size-12: 12px;
+$font-size-10: 10px;
+
+/* Classes de tipografia - 16px */
+.text-16-black {
+  font-family: 'Nunito', sans-serif;
+  font-size: $font-size-16;
+  font-weight: $font-weight-black;
+}
+
+.text-16-semibold {
+  font-family: 'Nunito', sans-serif;
+  font-size: $font-size-16;
+  font-weight: $font-weight-semibold;
+}
+
+.text-16-light {
+  font-family: 'Nunito', sans-serif;
+  font-size: $font-size-16;
+  font-weight: $font-weight-light;
+}
+
+.text-16-regular {
+  font-family: 'Nunito', sans-serif;
+  font-size: $font-size-16;
+  font-weight: $font-weight-regular;
+}
+
+/* Classes de tipografia - 14px */
+.text-14-black {
+  font-family: 'Nunito', sans-serif;
+  font-size: $font-size-14;
+  font-weight: $font-weight-black;
+}
+
+.text-14-semibold {
+  font-family: 'Nunito', sans-serif;
+  font-size: $font-size-14;
+  font-weight: $font-weight-semibold;
+}
+
+.text-14-light {
+  font-family: 'Nunito', sans-serif;
+  font-size: $font-size-14;
+  font-weight: $font-weight-light;
+}
+
+.text-14-regular {
+  font-family: 'Nunito', sans-serif;
+  font-size: $font-size-14;
+  font-weight: $font-weight-regular;
+}
+
+/* Classes de tipografia - 12px */
+.text-12-black {
+  font-family: 'Nunito', sans-serif;
+  font-size: $font-size-12;
+  font-weight: $font-weight-black;
+}
+
+.text-12-semibold {
+  font-family: 'Nunito', sans-serif;
+  font-size: $font-size-12;
+  font-weight: $font-weight-semibold;
+}
+
+.text-12-light {
+  font-family: 'Nunito', sans-serif;
+  font-size: $font-size-12;
+  font-weight: $font-weight-light;
+}
+
+.text-12-regular {
+  font-family: 'Nunito', sans-serif;
+  font-size: $font-size-12;
+  font-weight: $font-weight-regular;
+}
+
+/* Classes de tipografia - 10px */
+.text-10-black {
+  font-family: 'Nunito', sans-serif;
+  font-size: $font-size-10;
+  font-weight: $font-weight-black;
+}
+
+.text-10-semibold {
+  font-family: 'Nunito', sans-serif;
+  font-size: $font-size-10;
+  font-weight: $font-weight-semibold;
+}
+
+.text-10-light {
+  font-family: 'Nunito', sans-serif;
+  font-size: $font-size-10;
+  font-weight: $font-weight-light;
+}
+
+.text-10-regular {
+  font-family: 'Nunito', sans-serif;
+  font-size: $font-size-10;
+  font-weight: $font-weight-regular;
+}
+
+/* ==========================================================================
+   02. COLORS
+   ========================================================================== */
+
+/* Cores primárias */
+$primary: #3a9db7;
+$primary-2: #49afc9;
+$secondary: #222b45;
+
+/* Cores em escala de cinza */
+$black: #888787;
+$gray: #f0f0f0;
+$white: #2f80ed; /* Nota: Esta cor parece ser azul, não branco */
+
+/* Classes de cores de texto */
+.text-primary {
+  color: $primary;
+}
+
+.text-primary-2 {
+  color: $primary-2;
+}
+
+.text-secondary {
+  color: $secondary;
+}
+
+.text-black {
+  color: $black;
+}
+
+.text-gray {
+  color: $gray;
+}
+
+.text-white {
+  color: $white;
+}
+
+/* Classes de cores de fundo */
+.bg-primary {
+  background-color: $primary;
+}
+
+.bg-primary-2 {
+  background-color: $primary-2;
+}
+
+.bg-secondary {
+  background-color: $secondary;
+}
+
+.bg-black {
+  background-color: $black;
+}
+
+.bg-gray {
+  background-color: $gray;
+}
+
+.bg-white {
+  background-color: $white;
+}
+
+/* ==========================================================================
+   CONFIGURAÇÃO GLOBAL
+   ========================================================================== */
+
+/* Aplicar fonte Nunito globalmente */
+* {
+  font-family: 'Nunito', sans-serif;
+}
+
+/* Configuração padrão do body */
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: $font-size-14;
+  font-weight: $font-weight-regular;
+  color: $secondary;
+}
+
+/* Configurações de títulos */
+h1 {
+  @extend .text-16-black;
+}
+
+h2 {
+  @extend .text-16-semibold;
+}
+
+h3 {
+  @extend .text-14-semibold;
+}
+
+h4 {
+  @extend .text-14-regular;
+}
+
+h5 {
+  @extend .text-12-semibold;
+}
+
+h6 {
+  @extend .text-12-regular;
+}
+
+/* Configurações de parágrafos */
+p {
+  @extend .text-14-regular;
+}
+
+/* Configurações de texto pequeno */
+small {
+  @extend .text-12-light;
+}
+
+/**
+ * IMPORTANTE: 
+ * Este arquivo contém as diretrizes de UI que devem ser seguidas em todo o projeto.
+ * Sempre consulte este arquivo antes de definir cores ou tipografia.
+ * NÃO altere essas configurações sem aprovação, pois elas garantem a consistência visual.
+ */

@@ -1,0 +1,95 @@
+/* Estilos para o componente de página de suporte */
+
+/* Container principal */
+.support { 
+  max-width: 420px; 
+  margin: 0 auto; 
+  padding: var(--space-4); 
+}
+
+/* Título da página */
+h2 { 
+  text-align: center; 
+  margin: var(--space-4) 0 var(--space-3); 
+}
+
+/* Campo de busca */
+.search-field { 
+  width: 100%; 
+}
+
+/* Área de filtros */
+.filters { 
+  display: flex; 
+  gap: var(--space-3); 
+  margin: var(--space-3) 0 var(--space-4); 
+  justify-content: center; 
+}
+
+/* Botão de filtro ativo */
+.filters .active { 
+  background-color: var(--c-primary); 
+  color: var(--c-primary-contrast); 
+}
+
+/* Container de tickets */
+.tickets { 
+  display: flex; 
+  flex-direction: column; 
+  gap: var(--space-3); 
+}
+
+/* Estilo base do ticket */
+.ticket { 
+  border-radius: var(--radius-card); 
+  padding: var(--space-3); 
+  border: 1.5px solid var(--c-ticket-border); 
+  box-shadow: var(--shadow-card); 
+}
+
+/* Variações de status do ticket */
+.ticket.pendente { 
+  border-color: var(--c-ticket-border); 
+}
+
+.ticket.concluido { 
+  background: var(--c-ticket-success-bg); 
+  border-color: color-mix(in srgb, var(--c-primary) 30%, #b0dbe6); 
+}
+
+.ticket.cancelado { 
+  border-color: var(--c-ticket-cancel-border); 
+}
+
+/* Conteúdo do ticket */
+.body { 
+  font-size: 13px; 
+}
+
+/* Área do botão de ação */
+.cta { 
+  display: flex; 
+  justify-content: center; 
+  margin-top: var(--space-4); 
+}
+
+/* Botão de ação */
+.cta button { 
+  min-width: 260px; 
+  border-radius: var(--radius-button); 
+}
+
+/* Mensagem de lista vazia */
+.empty { 
+  text-align: center; 
+  color: var(--c-muted); 
+  padding: var(--space-6) 0; 
+}
+
+/* Controles de paginação */
+.pager { 
+  display: flex; 
+  justify-content: center; 
+  gap: var(--space-2); 
+  margin-top: var(--space-3); 
+}
