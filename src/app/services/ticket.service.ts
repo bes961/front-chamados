@@ -63,6 +63,10 @@ export class TicketService {
 		);
 	}
 
+	obterDetalhe(id: number): Observable<any> {
+		return this.http.get<any>(`${this.baseUrl}/detalhe/${id}`);
+	}
+
 	criar(payload: CreateTicketRequest): Observable<{ id: number }> {
 		return this.http.post<{ id: number }>(`${this.baseUrl}`, payload);
 	}

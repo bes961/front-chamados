@@ -24,7 +24,7 @@
   <!-- Lista de chamados -->
   <div class="tickets" *ngIf="filtered().length; else empty">
     @for (t of filtered(); track t.numero) {
-      <article class="ticket" [ngClass]="statusClass(t.status)">
+      <article class="ticket" [ngClass]="statusClass(t.status)" [routerLink]="['/chamado', t.numero]" [state]="{ ticket: t }">
         <div class="body">
           <div><strong>Nº: {{ t.numero }}</strong></div>
           <div>Assunto: {{ t.assunto }}</div>
